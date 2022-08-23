@@ -7,16 +7,14 @@ const cardContainermain = document.querySelector(".card-container");
 
 
 const showCard = () => {
-    // pokemonArray = pokemonArray.map(object => {
-    //     let str = object.name
-    //     str = str.charAt(0).toUpperCase() + str.slice(1);
-    //     console.log(str)
-    //     return str;
-    // })
+
+
 
     console.log(pokemonArray)
 
     pokemonArray.forEach(card => {
+        let capitalFirstLeter = card.name.charAt(0).toUpperCase() + card.name.slice(1);
+
         const singleCard = document.createElement("div");
         singleCard.classList.add('card');
         singleCard.innerHTML = `<img class="card__image" src=${card.sprite}>`
@@ -24,8 +22,8 @@ const showCard = () => {
         const cardContent = document.createElement("div");
         cardContent.classList.add('card__content');
 
-        cardContent.innerHTML = `<h5 class = "card__heading"> ${card.name} </h5> 
-            <p class = "card__text">${(card.name)} (#${card.id}) is a ${card.types } type pokemon.</p>`
+        cardContent.innerHTML = `<h5 class = "card__heading"> ${capitalFirstLeter} </h5> 
+            <p class = "card__text">${capitalFirstLeter} (#${card.id}) is a ${card.types } type pokemon.</p>`
 
 
         cardContainermain.appendChild(singleCard);
