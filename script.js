@@ -6,21 +6,13 @@ import {
 let clonePokemon = [...pokemonArray];
 const cardContainermain = document.querySelector(".card-container");
 const userInput = document.querySelector(".search");
-const resetPage = document.querySelector(".resetbutton");
-
-
-const search = () => {
-    cardContainermain.innerHTML = '';
-    let searchPokemon = userInput.value.toLowerCase()
-
-    let filteredPokemon = clonePokemon.filter((pokemon) => pokemon.name.toLowerCase() == searchPokemon);
-    showCard(filteredPokemon)
-}
+const resetButton = document.querySelector(".resetbutton");
 
 
 
 
 
+//Challnge part 1 
 const showCard = (array) => {
 
     array.forEach(pokemon => {
@@ -42,14 +34,22 @@ const showCard = (array) => {
         singleCard.appendChild(cardContent);
     });
 }
-
 showCard(clonePokemon)
 
+//chalenge 2
 
+
+const search = () => {
+    cardContainermain.innerHTML = '';
+    let searchPokemon = userInput.value.toLowerCase()
+
+    let filteredPokemon = clonePokemon.filter((pokemon) => pokemon.name.toLowerCase() == searchPokemon);
+    showCard(filteredPokemon)
+}
 const refresh = () => {
     cardContainermain.innerHTML = '';
     showCard(clonePokemon)
 }
 
 userInput.addEventListener("blur", search);
-resetPage.addEventListener("click", refresh)
+resetButton.addEventListener("click", refresh)
